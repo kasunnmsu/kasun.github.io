@@ -462,7 +462,7 @@ input:checked + .slider:before {
 /* Post Paragraph Styling */
 .post-entry p {
     margin-bottom: 10px;                /* Space below paragraphs */
-    color: #555555;                      /* Dark gray for better readability */
+    color: #1d1a1a;                      /* Dark gray for better readability */
     line-height: 1.6;                    /* Improved line spacing */
 }
 
