@@ -467,7 +467,7 @@ input:checked + .slider:before {
 }
 
 body.dark-mode .post-entry p {
-    color: #cccccc; /* Lighter text color in dark mode */
+    color: #1d1a1a; /* Lighter text color in dark mode */
 }
 
 /* Read More Link Styling */
