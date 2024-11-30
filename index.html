@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasun Guruge</title>
+    <!-- Include Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Include Simple Pagination CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/simplePagination.min.css" />
+    <!-- Custom CSS for Enhanced Styling -->
+    <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <a href="#" class="site-name">
+            Kasun's Hub
+        </a>
+        <div class="nav-links" id="nav-links">
+            <a href="./about.html">About</a>
+            <a href="https://www.linkedin.com/in/kasun-guruge-22399799/" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/kasunnmsu" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <!-- Theme Toggle Button -->
+            <label class="theme-switch" aria-label="Toggle Dark Mode">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <!-- Hamburger Menu Icon -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Flex Container for Sidebar and Main Content -->
+    <div class="container">
+        <!-- Sidebar with Categories -->
+        <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+            <h5 class="quarto-listing-category-title">Categories</h5>
+            <div class="quarto-listing-category category-default">
+                <div class="category active" data-category="">
+                    All <span class="quarto-category-count">(0)</span>
+                </div>
+                <!-- Existing Category: bioinformatics -->
+                <div class="category" data-category="YmlvSW5mb3JtYXRpY3M=">
+                    bioinformatics <span class="quarto-category-count">(0)</span>
+                </div>
+                <!-- New Category: python -->
+                <div class="category" data-category="cHl0aG9u">
+                    python <span class="quarto-category-count">(0)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <div id="demo-mobile-month-view"></div>
+            <!-- About Section -->
+            <section id="about" class="about-section" style="margin-bottom: 40px;">
+                <h2>About</h2>
+                <p>Welcome to My Hub!</p>
+            </section>
+
+            <!-- Listing of Posts -->
+            <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+                <div class="list quarto-listing-default">
+                    <!-- Post Entry 1 -->
+                    <div class="post-entry" data-category="YmlvSW5mb3JtYXRpY3M=">
+                        <div class="post-content">
+                            <div class="post-text">
+                                <h3>Frequent k-mer Analysis in SARS-CoV-2 Genome</h3>
+                                <p><strong>Date:</strong> 2024-09-26</p>
+                                <p>This analysis explores the frequency of k-mers in the SARS-CoV-2 genome, identifying significant patterns and their biological implications.</p>
+                                <a href="post/p1.html">Read More</a>
+                            </div>
+                            <div class="post-image-container">
+                                <img src="post/images/p1.png" alt="Frequent k-mer Analysis in SARS-CoV-2 Genome" class="post-image">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Post Entry 2 -->
+                    <div class="post-entry" data-category="YmlvSW5mb3JtYXRpY3M=">
+                        <div class="post-content">
+                            <div class="post-text">
+                                <h3>Efficient K-mer Assembly Using De Bruijn Graphs for DNA Sequence Reconstruction</h3>
+                                <p><strong>Date:</strong> 2024-10-24</p>
+                                <p>This report presents an analysis of two methods—pairwise comparison and hashing—for constructing de Bruijn graphs used in DNA sequence assembly. </p>
+                                <a href="post/p2.html">Read More</a>
+                            </div>
+                            <div class="post-image-container">
+                                <img src="post/images/p2.png" alt="Null Distribution of k-mer Frequencies" class="post-image">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <!-- Post Entry 3 with Multiple Categories -->
+                    <div class="post-entry" data-category="YmlvSW5mb3JtYXRpY3M=, cHl0aG9u">
+                        <div class="post-content">
+                            <div class="post-text">
+                                <h3>Evolution of repetitive sequences in viruses</h3>
+                                <p><strong>Date:</strong> 2024-11-19</p>
+                                <p>This project investigates the evolution of viral genomes.</p>
+                                <a href="post/p3.html">Read More</a>
+                            </div>
+                            <div class="post-image-container">
+                                <img src="post/images/p3.png" alt="Integrating Bioinformatics and Python for Genomic Analysis" class="post-image">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- Add more post entries as needed -->
+                </div>
+                <div class="listing-no-matching">
+                    No matching items
+                </div>
+                <nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">&laquo; Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next &raquo;</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include Simple Pagination JS and CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/simplePagination.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.min.js"></script>
+
+    <!-- Initialize Pagination and Dynamic Category Counts -->
+    <script src="./scripts/script.js"></script>
+
+</body>
+</html>
