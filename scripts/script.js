@@ -177,3 +177,17 @@ $(document).ready(function() {
         );
     }
 });
+document.addEventListener("DOMContentLoaded", function () {
+        const postList = document.querySelector("#post-list");
+        const posts = Array.from(postList.children);
+
+        // Parse dates and sort posts
+        posts.sort((a, b) => {
+            const dateA = new Date(a.querySelector(".post-date").textContent.split(": ")[1]);
+            const dateB = new Date(b.querySelector(".post-date").textContent.split(": ")[1]);
+            return dateB - dateA; // Latest first
+        });
+
+        // Reorder posts in the DOM
+        posts.forEach((post) => postList.appendChild(post));
+    });
