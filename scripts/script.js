@@ -25,7 +25,7 @@ $(document).ready(function() {
     // Initialize Pagination
     var items = $("#post-list .post-entry");
     var numItems = items.length;
-    var perPage = 6; // Number of posts per page
+    var perPage = 3; // Number of posts per page
 
     // Initialize pagination plugin
     $('#listing-pagination .pagination').pagination({
