@@ -431,57 +431,92 @@ body.dark-mode .quarto-listing-category-title  {
 /* Post Content Flex Layout */
 .post-content {
     display: flex;
-    flex-direction: column; /* Stack vertically by default */
-    gap: 15px;              /* Space between text and image */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--post-background);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px var(--shadow-color);
 }
 
 .post-text {
-    flex: 1; /* Allows text to take up available space */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.post-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.post-date {
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+.post-description {
+    font-size: 0.9em;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.read-more {
+    align-self: start;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+.read-more:hover {
+    text-decoration: underline;
 }
 
 .post-image-container {
-    flex: 0 0 auto; /* Prevents image container from growing */
+    flex: 0 0 150px;
+    height: 100px;
+    margin-left: 20px;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
 .post-image {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    height: 100%;
     object-fit: cover;
     transition: transform 0.3s;
 }
 
 .post-image:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
 }
 
-/* Two-Column Layout for Larger Screens */
-@media (min-width: 768px) {
+/* Responsive Adjustments */
+@media (max-width: 768px) {
     .post-content {
-        flex-direction: row; /* Align text and image horizontally */
-        align-items: flex-start; /* Align items to the top */
-    }
-
-    .post-text {
-        flex: 2; /* Text takes up more space */
-        margin-right: 20px; /* Space between text and image */
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .post-image-container {
-        flex: 1; /* Image takes up less space */
-        max-width: 300px; /* Sets a maximum width for the image */
+        width: 100%;
+        height: 200px;
+        margin-left: 0;
     }
 
     .post-image {
-        width: 100%;
-        height: auto;
-    }
-}
-
-/* Ensure Responsive Images on Small Screens */
-@media (max-width: 767px) {
-    .post-image-container {
-        max-width: 100%; /* Image takes full width on smaller screens */
+        height: 100%;
     }
 }
 
@@ -500,7 +535,7 @@ body.dark-mode .quarto-listing-category-title  {
 }
 
 body.dark-mode .post-entry p {
-    color: #090808; /* Lighter text color in dark mode */
+    color: #f3f3f3; /* Lighter text color in dark mode */
 }
 
 /* Read More Link Styling */
@@ -528,6 +563,29 @@ body.dark-mode .post-entry p {
     transform: translateX(5px);
 }
 
+.read-more {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.read-more::after {
+    content: " →"; /* Right arrow */
+    margin-left: 5px;
+    font-size: 1.1em;
+    transition: transform 0.3s;
+}
+
+.read-more:hover {
+    color: var(--link-color);
+}
+
+.read-more:hover::after {
+    transform: translateX(5px); /* Move arrow slightly to the right on hover */
+}
 /* Pagination Styling */
 .pagination {
     display: flex;
