@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta-Level MDP For Optimal Nudge Selection in Different Strategies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, "Courier New", Courier, monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        table th {
+            background-color: #f2f2f2;
+        }
+        figure {
+            margin: 20px 0;
+            text-align: center;
+        }
+        figcaption {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Meta-Level MDP For Optimal Nudge Selection in Different Strategies</h1>
+
+    <h2>Introduction</h2>
+    <p>This document explains how meta-level Markov Decision Process (meta-MDP) components are utilized in a Python code that simulates different nudging strategies to influence an agent's decision-making. The agent must choose among several options based on multiple features. The code implements three nudging strategies:</p>
+    <ul>
+        <li>Optimal Nudging</li>
+        <li>Extreme Nudging</li>
+        <li>Random Nudging</li>
+    </ul>
+
+    <h2>Meta-MDP Components in the Code</h2>
+    <p>A meta-MDP models the cognitive processes of an agent, including how they gather information (computations) and make decisions under uncertainty, considering computational costs.</p>
+    <p>The key components of a meta-MDP are:</p>
+    <ul>
+        <li><strong>States (Belief States):</strong> Represent the agent's current beliefs about the environment.</li>
+        <li><strong>Actions (Computations and Choices):</strong> The computations the agent can perform (e.g., observing a feature) and the final choice among options.</li>
+        <li><strong>Transition Function:</strong> Defines how the belief state updates as a result of actions.</li>
+        <li><strong>Reward Function:</strong> Balances the utility of making good decisions against the costs of computations.</li>
+        <li><strong>Policy:</strong> The strategy the agent uses to select actions based on beliefs.</li>
+    </ul>
+
+    <h3>Belief State Representation</h3>
+    <pre><code class="language-python">
+class Belief:
+    def __init__(self, features, options, mean=50, std=20):
+        self.features = features  # List of feature names
+        self.options = options    # List of option names
+        self.matrix = np.array([
+            [norm(mean, std) for _ in options] for _ in features
+        ])
+        self.costs = np.full((len(features), len(options)), 2)
+    </code></pre>
+
+    <h3>Actions</h3>
+    <p><strong>Computations (Observations):</strong></p>
+    <pre><code class="language-python">
+def observe(self, true_values, cell):
+    i, j = cell
+    true_value = true_values[i, j]
+    self.matrix[i, j] = norm(true_value, 1e-10)  # Near-certain belief
+    </code></pre>
+
+    <p><strong>Choice:</strong> The agent can decide to stop gathering information and make a choice based on the current belief state.</p>
+
+    <h3>Transition Function</h3>
+    <p>Observing a feature (performing a computation) updates the belief state:</p>
+    <p>$$b_{ij} \leftarrow \mathcal{N}(v_{ij}^{\text{true}}, \sigma_{\text{obs}}^2)$$</p>
+
+    <h3>Reward Function</h3>
+    <p>The reward function considers:</p>
+    <ul>
+        <li><strong>Utility of Choice:</strong> The expected utility of the chosen option.</li>
+        <li><strong>Computation Costs:</strong> The costs associated with observations.</li>
+    </ul>
+    <p>Total expected utility:</p>
+    <p>$$\text{Utility} = V_{\text{best}} - \sum_{\text{observations}} c_{\text{obs}}$$</p>
+
+    <h3>Policy</h3>
+    <p>Different nudging strategies represent different policies or modifications to the agent's environment:</p>
+    <ul>
+        <li><strong>Optimal Nudging:</strong> Observing features that maximize expected utility.</li>
+        <li><strong>Extreme Nudging:</strong> Observing features with the most extreme true values.</li>
+        <li><strong>Random Nudging:</strong> Observing randomly selected features.</li>
+    </ul>
+
+    <h2>Agent's Decision-Making Process</h2>
+    <h3>Calculating Choice Values</h3>
+    <p>The agent computes the expected utility (choice value) for each option:</p>
+    <p>$$V_j = \sum_{i} \mu_{ij}$$</p>
+    <pre><code class="language-python">
+def choice_values(self):
+    return np.sum([
+        [dist.mean() for dist in row] for row in self.matrix
+    ], axis=0)
+    </code></pre>
+
+    <h2>Nudging Strategies Implementation</h2>
+    <h3>Optimal Nudging</h3>
+    <pre><code class="language-python">
+def find_optimal_nudge(true_values, belief, budget):
+    # Exhaustively search all combinations within budget
+    # Return the nudge and expected performance
+    </code></pre>
+
+    <h3>Extreme Nudging</h3>
+    <pre><code class="language-python">
+def find_extreme_nudge(true_values, belief, budget):
+    cell_extremities = {
+        cell: abs(true_values[cell[0], cell[1]] - 50) for cell in unobserved
+    }
+    extreme_nudge = sorted(
+        cell_extremities, key=cell_extremities.get, reverse=True
+    )[:budget]
+    </code></pre>
+
+    <h3>Random Nudging</h3>
+    <pre><code class="language-python">
+def find_random_nudge(true_values, belief, budget):
+    unobserved = belief.unobserved_cells()
+    random_nudge = random.sample(unobserved, budget)
+    </code></pre>
+
+    <h2>Results and Analysis</h2>
+    <figure>
+        <img src="result1.png" alt="Comparison of Nudging Strategies" style="max-width:100%;height:auto;">
+        <figcaption>Comparison of Expected Performance for Different Nudging Strategies</figcaption>
+    </figure>
+
+    <h2>Conclusion</h2>
+    <p>The code effectively demonstrates how meta-MDP components can model decision-making under uncertainty. By representing states, actions, transitions, rewards, and policies, we can compare the effectiveness of various nudging strategies. Optimal nudging outperforms extreme and random nudging, highlighting the importance of strategic observation in decision-making.</p>
+
+</body>
+</html>
