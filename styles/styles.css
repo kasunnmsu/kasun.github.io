@@ -192,23 +192,55 @@ input:checked + .slider:before {
 }
 
 /* Sidebar Styling */
+/* Sidebar Styling */
 .sidebar {
     background-color: var(--sidebar-background);
     width: 250px;
-    padding: 80px 20px 20px 20px; /* Top padding adjusted for fixed navbar */
+    padding: 60px 20px 20px 20px; /* Adjusted for navbar height */
     border-right: 1px solid var(--border-color);
     box-sizing: border-box;
-    position: fixed; /* Keep the sidebar fixed */
-    top: 0;
+    position: relative;
+    top: -50px;
     left: 0;
-    height: 100vh;
+    height: 50vh;
     overflow-y: auto;
+    z-index: 900; /* Positioned below the navbar */
 }
 
+/* Category Title Styling */
 .quarto-listing-category-title {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-size: 1.2em;
-    color: var(--text-color);
+    color: black;
+    display: block; /* Ensure it's visible */
+}
+body.dark-mode .quarto-listing-category-title  {
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    color: black;
+    display: block; /* Ensure it's visible */
+}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        padding: 60px 15px 15px 15px; /* Adjust padding as needed */
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .quarto-listing-category-title {
+        margin-bottom: 15px; /* Adjust margin for smaller screens */
+    }
 }
 
 .quarto-listing-category .category {
@@ -238,6 +270,7 @@ input:checked + .slider:before {
 /* Main Content Styling */
 .main-content {
     position: relative;
+    top: -50px;
     margin-left: 250px; /* Offset for the fixed sidebar */
     padding: 60px 20px 20px 20px; /* Top padding adjusted for fixed navbar */
     flex: 1;
@@ -462,12 +495,12 @@ input:checked + .slider:before {
 /* Post Paragraph Styling */
 .post-entry p {
     margin-bottom: 10px;                /* Space below paragraphs */
-    color: #1d1a1a;                      /* Dark gray for better readability */
+    color: #555555;                      /* Dark gray for better readability */
     line-height: 1.6;                    /* Improved line spacing */
 }
 
 body.dark-mode .post-entry p {
-    color: #1d1a1a; /* Lighter text color in dark mode */
+    color: #090808; /* Lighter text color in dark mode */
 }
 
 /* Read More Link Styling */
@@ -665,4 +698,16 @@ body.dark-mode .listing-no-matching {
 /* Ensure FullCalendar Popup is Above Other Elements */
 .fc {
     z-index: 1002; /* Higher than navbar's z-index */
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
