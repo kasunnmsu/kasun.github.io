@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Curriculum vitae of Kasun Rajitha, including research on role-dependent use of mixed-quality data in offline reinforcement learning.">
     <title>Kasun Rajitha - Curriculum Vitae</title>
-
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -16,21 +20,21 @@
         }
 
         .container {
-            width: 80%;
-            max-width: 900px;
-            margin: auto;
+            width: 90%;
+            max-width: 980px;
+            margin: 24px auto;
             background: #fff;
-            padding: 20px 40px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 24px 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         header,
         section {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         header h1 {
-            margin-bottom: 5px;
+            margin: 0 0 5px;
             font-size: 2em;
             border-bottom: 2px solid #333;
             display: inline-block;
@@ -48,41 +52,57 @@
         h2 {
             border-bottom: 1px solid #ddd;
             padding-bottom: 5px;
-            margin-bottom: 10px;
+            margin: 24px 0 10px;
             color: #555;
+            font-size: 1.4em;
         }
 
         h3 {
-            margin-bottom: 5px;
-            color: #666;
+            margin: 16px 0 5px;
+            color: #444;
+            font-size: 1.1em;
         }
 
         h4 {
-            margin-bottom: 5px;
-            color: #777;
+            margin: 12px 0 5px;
+            color: #555;
+            font-size: 1em;
         }
 
         p {
-            margin-top: 5px;
-            margin-bottom: 8px;
+            margin: 5px 0 8px;
         }
 
         ul {
             list-style-type: disc;
-            margin-left: 20px;
+            margin: 8px 0 12px;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .entry + .entry {
+            margin-top: 22px;
+        }
+
+        .research-status {
+            border-left: 3px solid #666;
+            padding: 6px 12px;
+            margin: 10px 0 12px;
+            background-color: #f7f7f7;
         }
 
         .skills,
         .languages {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 24px;
         }
 
-        .skills div,
-        .languages div {
-            width: 45%;
-            margin-right: 5%;
-            margin-bottom: 10px;
+        .references .entry {
+            margin-bottom: 18px;
         }
 
         .references p {
@@ -91,24 +111,38 @@
 
         a {
             color: #333;
+            overflow-wrap: anywhere;
+        }
+
+        a:focus-visible {
+            outline: 2px solid #555;
+            outline-offset: 3px;
         }
 
         @media (max-width: 600px) {
             .container {
-                width: auto;
+                width: 100%;
+                margin: 0;
                 padding: 20px;
+                box-shadow: none;
             }
 
-            .skills div,
-            .languages div {
-                width: 100%;
-                margin-right: 0;
+            .skills,
+            .languages {
+                grid-template-columns: 1fr;
             }
+        }
+
+        @page {
+            margin: 18mm;
         }
 
         @media print {
             body {
                 background: #fff;
+                color: #000;
+                font-size: 10.5pt;
+                line-height: 1.4;
             }
 
             .container {
@@ -119,6 +153,38 @@
                 box-shadow: none;
             }
 
+            header,
+            section {
+                margin-bottom: 16px;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                break-after: avoid-page;
+                page-break-after: avoid;
+                color: #000;
+            }
+
+            p,
+            li {
+                orphans: 3;
+                widows: 3;
+            }
+
+            li,
+            .skills > div,
+            .languages > div,
+            .references .entry {
+                break-inside: avoid-page;
+                page-break-inside: avoid;
+            }
+
+            .research-status {
+                background: transparent;
+            }
+
             a {
                 color: #000;
                 text-decoration: none;
@@ -126,873 +192,278 @@
         }
     </style>
 </head>
-
 <body>
-<div class="container">
-
-    <!-- Header -->
+<main class="container">
     <header>
         <h1>Kasun Rajitha</h1>
-
         <div class="contact-info">
             <p>2630 S Espina St., Apt. 36, Las Cruces, NM 88001, USA</p>
-
             <p>
-                Email:
-                <a href="mailto:kguruge@nmsu.edu">kguruge@nmsu.edu</a>
-                |
-                Phone:
-                <a href="tel:+17754514414">(+1) 775-451-4414</a>
+                Email: <a href="mailto:kguruge@nmsu.edu">kguruge@nmsu.edu</a>
+                | Phone: <a href="tel:+17754514414">(+1) 775-451-4414</a>
             </p>
-
             <p>
                 LinkedIn:
-                <a
-                    href="https://www.linkedin.com/in/kasun-guruge-22399799/"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    KasunGuruge
-                </a>
+                <a href="https://www.linkedin.com/in/kasun-guruge-22399799/"
+                   target="_blank" rel="noopener noreferrer">KasunGuruge</a>
             </p>
         </div>
     </header>
 
+    <!-- Education: research assistant project details appear under Work Experience. -->
+    <section aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
 
-    <!-- Education -->
-    <section>
-        <h2>Education</h2>
-
-        <div>
+        <div class="entry">
             <h3>Ph.D. in Computer Science</h3>
-
-            <p>
-                <strong>New Mexico State University</strong>,
-                Las Cruces, USA
-                (August 2024 - Present)
-            </p>
-
+            <p><strong>New Mexico State University</strong>, Las Cruces, USA | August 2024 &ndash; Present</p>
             <p><strong>GPA:</strong> 3.925</p>
-
-            <p>
-                <strong>Current Project:</strong>
-                AI-Driven Consumer Guidance System (Fall 2024)
-            </p>
-
-            <p>
-                <strong>Advisors:</strong>
-                Dr. Christabel Wayllace and Dr. Francine Mezzomo Giotto
-            </p>
-
-            <ul>
-                <li>
-                    Developing a web application to enhance decision-making
-                    in the meat industry by integrating artificial intelligence
-                    with meat science.
-                </li>
-
-                <li>
-                    Using resource-rational nudging to guide consumers toward
-                    healthier and more sustainable choices.
-                </li>
-
-                <li>
-                    Leveraging Offline Reinforcement Learning (Offline RL)
-                    frameworks to optimize policy learning and improve
-                    application efficiency under constrained data environments.
-                </li>
-            </ul>
-
-            <p>
-                <em>
-                    Transferred from Portland State University,
-                    Portland, USA in August 2024.
-                </em>
-            </p>
-
+            <p><strong>Advisors:</strong> Dr. Christabel Wayllace and Dr. Francine Mezzomo Giotto</p>
+            <p><em>Transferred from Portland State University, Portland, USA, in August 2024.</em></p>
             <p><strong>Portland State University GPA:</strong> 3.78</p>
-
-            <p>
-                <strong>Project:</strong>
-                Optimization of Dynamic Reservoir Systems for Efficient
-                Time-Series Prediction (Winter 2023)
-            </p>
-
-            <p>
-                <strong>Advisor:</strong>
-                Dr. Christof Teuscher
-                (
-                <a
-                    href="https://www.teuscher-lab.com/people/"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Teuscher Lab
-                </a>
-                )
-            </p>
-
-            <ul>
-                <li>
-                    Optimized dynamic reservoir systems for accurate,
-                    scalable time-series prediction.
-                </li>
-
-                <li>
-                    Tuned parameters and explored novel reservoir
-                    architectures using optimization algorithms.
-                </li>
-
-                <li>
-                    <strong>Technologies:</strong>
-                    Python, TensorFlow, SciPy, and custom reservoir
-                    computing frameworks.
-                </li>
-            </ul>
         </div>
 
-
-        <div>
+        <div class="entry">
             <h3>M.Sc. in Big Data Analytics</h3>
-
+            <p><strong>Robert Gordon University IIT</strong>, Sri Lanka | 2019 &ndash; 2022</p>
+            <p><strong>Thesis:</strong> &ldquo;Questions answering Chatbot: by converting Singlish to SQL queries conversion&rdquo;</p>
             <p>
-                <strong>Robert Gordon University IIT</strong>,
-                Sri Lanka (2019 - 2022)
+                <a href="http://dlib.iit.ac.lk/xmlui/bitstream/handle/123456789/1391/2019152.pdf?sequence=1"
+                   target="_blank" rel="noopener noreferrer">Read Thesis</a>
             </p>
-
-            <p>
-                <strong>Thesis:</strong>
-                “Questions answering Chatbot: by converting Singlish
-                to SQL queries conversion”
-            </p>
-
-            <p>
-                <a
-                    href="http://dlib.iit.ac.lk/xmlui/bitstream/handle/123456789/1391/2019152.pdf?sequence=1"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Read Thesis
-                </a>
-            </p>
-
             <ul>
-                <li>
-                    Developed a chatbot that translates Singlish queries
-                    into SQL for seamless database interaction.
-                </li>
-
-                <li>
-                    Used RoBERTa embedding and Bi-directional LSTM
-                    techniques for natural language processing.
-                </li>
-
-                <li>
-                    Implemented NLP techniques to interpret colloquial
-                    language and generate structured queries.
-                </li>
-
-                <li>
-                    <strong>Technologies:</strong>
-                    Python, TensorFlow, SQL, NLTK, and SpaCy.
-                </li>
+                <li>Developed a chatbot that translates Singlish queries into SQL using RoBERTa embeddings and bidirectional LSTM models.</li>
+                <li>Implemented natural language processing methods to interpret colloquial language and generate structured database queries.</li>
             </ul>
+            <p><strong>Technologies:</strong> Python, TensorFlow, SQL, NLTK, spaCy.</p>
         </div>
 
-
-        <div>
+        <div class="entry">
             <h3>B.Sc. Hons in Software Engineering</h3>
-
-            <p>
-                <strong>University of Kelaniya</strong>,
-                Kelaniya, Sri Lanka (2015 - 2019)
-            </p>
-
-            <p>
-                <strong>Thesis:</strong>
-                “Suspicious Human behavior system: by using Machine
-                learning and Image processing”
-            </p>
-
+            <p><strong>University of Kelaniya</strong>, Kelaniya, Sri Lanka | 2015 &ndash; 2019</p>
+            <p><strong>Thesis:</strong> &ldquo;Suspicious Human behavior system: by using Machine learning and Image processing&rdquo;</p>
             <ul>
-                <li>
-                    Developed a real-time surveillance system to detect
-                    suspicious human behavior.
-                </li>
-
-                <li>
-                    Utilized Haar classifiers and machine learning models
-                    for anomaly detection.
-                </li>
-
-                <li>
-                    Integrated image-processing techniques to enhance
-                    detection accuracy.
-                </li>
-
-                <li>
-                    <strong>Technologies:</strong>
-                    Python, OpenCV, TensorFlow, and scikit-learn.
-                </li>
+                <li>Developed a real-time system for detecting suspicious human behavior using Haar classifiers, machine learning, and image processing.</li>
             </ul>
-
-            <p>
-                <strong>Final Year GPA:</strong>
-                3.87
-                (Graduated with Second Class Upper Division)
-            </p>
+            <p><strong>Technologies:</strong> Python, OpenCV, TensorFlow, scikit-learn.</p>
+            <p><strong>Final Year GPA:</strong> 3.87 | Second Class Upper Division</p>
         </div>
     </section>
 
+    <!-- Current research: abstract submission is not listed as a publication or acceptance. -->
+    <section aria-labelledby="current-research-heading">
+        <h2 id="current-research-heading">Current Research</h2>
+        <div class="entry">
+            <h3>Role-Dependent Use of Mixed-Quality Data in Offline RL</h3>
+            <p><strong>Method:</strong> Trust-Mix | Ongoing research</p>
+            <p class="research-status"><strong>Submission status:</strong> Abstract submitted to ICLR 2027.</p>
+            <p>
+                Investigating when transitions generated by low-quality behavior can support
+                value learning and policy improvement without treating their recorded actions
+                as equally useful targets for imitation.
+            </p>
+            <ul>
+                <li>Developing Trust-Mix, an offline reinforcement learning approach that separates three roles of data: learning action values from transitions, improving the policy at recorded states using those values, and directly supervising the policy with recorded actions.</li>
+                <li>Retaining the full dataset for value learning and value-guided policy improvement while weighting recorded actions used for behavioral supervision.</li>
+                <li>Studying datasets containing a small expert-policy component and a substantially larger random-policy component, without providing the learner with source identities.</li>
+                <li>Using paired expert-only and mixed-data experiments, data-role controls, and component ablations to examine when low-quality data are useful and which learning roles account for their effects.</li>
+            </ul>
+        </div>
+    </section>
 
-    <!-- Work Experience -->
-    <section>
-        <h2>Work Experience</h2>
+    <section aria-labelledby="previous-research-heading">
+        <h2 id="previous-research-heading">Previous Research Project</h2>
+        <div class="entry">
+            <h3>Optimization of Dynamic Reservoir Systems for Efficient Time-Series Prediction</h3>
+            <p><strong>Portland State University</strong>, Portland, USA | Winter 2023</p>
+            <p>
+                <strong>Advisor:</strong> Dr. Christof Teuscher
+                (<a href="https://www.teuscher-lab.com/people/"
+                    target="_blank" rel="noopener noreferrer">Teuscher Lab</a>)
+            </p>
+            <ul>
+                <li>Optimized dynamic reservoir systems for time-series prediction by tuning parameters and exploring reservoir architectures with optimization algorithms.</li>
+            </ul>
+            <p><strong>Technologies:</strong> Python, TensorFlow, SciPy, custom reservoir computing frameworks.</p>
+        </div>
+    </section>
 
-        <div>
+    <section aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Work Experience</h2>
+
+        <div class="entry">
             <h3>Graduate Research Assistant</h3>
-
-            <p>
-                <strong>
-                    New Mexico State University –
-                    Animal and Range Sciences Department
-                </strong>,
-                Las Cruces, USA (Fall 2024)
-            </p>
-
+            <p><strong>New Mexico State University &ndash; Animal and Range Sciences Department</strong>, Las Cruces, USA | Fall 2024</p>
+            <p><strong>Project:</strong> AI-Driven Consumer Guidance System</p>
             <ul>
-                <li>
-                    Conducting interdisciplinary research at the
-                    intersection of artificial intelligence and animal
-                    science, with a focus on intelligent systems for
-                    consumer decision-making in the meat industry.
-                </li>
-
-                <li>
-                    Exploring Offline Reinforcement Learning and nudging
-                    strategies to shift consumer behavior toward healthier
-                    meat choices.
-                </li>
-
-                <li>
-                    Developing a two-stage AI-driven application for meat
-                    product recommendations.
-                </li>
-
-                <li>
-                    In stage one, collecting user interaction trajectories
-                    without AI interference; in stage two, implementing
-                    customized offline RL algorithms to learn optimal
-                    nudging policies.
-                </li>
-
-                <li>
-                    Analyzing consumer behavior and uncovering hidden
-                    preferences from sparse, noisy, and suboptimal
-                    decision data.
-                </li>
-
-                <li>
-                    Designing vendor-user interaction frameworks as
-                    two-agent systems targeting saddle-point solutions
-                    that align vendor incentives with user health goals.
-                </li>
-
-                <li>
-                    Developing robust offline reinforcement learning
-                    algorithms for sparse rewards and constrained
-                    policy spaces.
-                </li>
-
-                <li>
-                    Designing and testing AI-driven nudges to promote
-                    healthier and more sustainable meat consumption.
-                </li>
-
-                <li>
-                    Applying machine learning and AI techniques to meat
-                    quality and consumer data while supporting
-                    nutrigenomics and behavioral science experiments.
-                </li>
-
-                <li>
-                    Presenting research findings at conferences and
-                    contributing to academic publications on AI in food
-                    systems and consumer nudging.
-                </li>
+                <li>Worked on a two-stage meat-recommendation application combining consumer interaction data, offline reinforcement learning, and resource-rational nudging to support healthier and more sustainable choices.</li>
+                <li>Designed a workflow that first collects user interaction trajectories without AI intervention, then uses offline reinforcement learning to learn customized nudging policies.</li>
+                <li>Investigated consumer preferences in sparse, noisy, and suboptimal decision data, with attention to sparse rewards and constrained policy spaces.</li>
+                <li>Explored vendor&ndash;user interactions as a two-agent system targeting saddle-point solutions that align vendor incentives with user health goals.</li>
             </ul>
         </div>
 
-
-        <div>
+        <div class="entry">
             <h3>Graduate Teaching Assistant</h3>
+            <p><strong>Portland State University &ndash; Computer Science Department</strong>, Portland, USA | 2023 &ndash; 2024</p>
 
-            <p>
-                <strong>
-                    Portland State University –
-                    Computer Science Department
-                </strong>,
-                Portland, USA (2023 - 2024)
-            </p>
-
-            <h4>Fall 2023 – CS 314: Elements of Software Engineering</h4>
-
+            <h4>Fall 2023 &ndash; CS 314: Elements of Software Engineering</h4>
             <ul>
-                <li>
-                    Assisted in teaching foundational software engineering
-                    concepts, including design principles, version control,
-                    and software development methodologies.
-                </li>
-
-                <li>
-                    Guided students through practical assignments on
-                    software design, testing, and collaborative coding
-                    practices.
-                </li>
-
-                <li>
-                    Held office hours and provided feedback on projects
-                    to enhance students' understanding of software
-                    engineering best practices.
-                </li>
+                <li>Guided assignments on software design, version control, testing, and collaborative development.</li>
+                <li>Held office hours and provided feedback on software engineering projects.</li>
             </ul>
 
-
-            <h4>Winter 2024 – CS 350: Algorithms and Complexity</h4>
-
+            <h4>Winter 2024 &ndash; CS 350: Algorithms and Complexity</h4>
             <ul>
-                <li>
-                    Supported lectures and labs focused on algorithm
-                    analysis, complexity classes, and problem-solving
-                    strategies.
-                </li>
-
-                <li>
-                    Helped students with assignments involving sorting,
-                    searching, dynamic programming, and graph algorithms.
-                </li>
-
-                <li>
-                    Conducted review sessions and assisted students with
-                    algorithm design and optimization.
-                </li>
+                <li>Assisted students with algorithm analysis, sorting, searching, dynamic programming, and graph algorithms.</li>
+                <li>Conducted review sessions on algorithm design, complexity, and optimization.</li>
             </ul>
 
-
-            <h4>Spring 2024 – CS 410/510: Unit Test Branching Strategy</h4>
-
+            <h4>Spring 2024 &ndash; CS 410/510: Unit Test Branching Strategy</h4>
             <ul>
-                <li>
-                    Facilitated advanced coursework in unit-testing
-                    strategies, including branching, coverage metrics,
-                    and test-driven development.
-                </li>
-
-                <li>
-                    Assisted students in implementing unit-testing
-                    frameworks and analyzing test effectiveness for
-                    software reliability.
-                </li>
-
-                <li>
-                    Organized laboratory sessions to provide hands-on
-                    experience with unit-testing tools and techniques.
-                </li>
+                <li>Supported coursework on branching strategies, coverage metrics, and test-driven development.</li>
+                <li>Organized laboratory sessions on unit-testing frameworks and test-effectiveness analysis.</li>
             </ul>
         </div>
 
-
-        <div>
-            <h3>Senior Software Engineer | Backend – Java</h3>
-
-            <p>
-                <strong>
-                    Etihad Guest Mobile Application,
-                    Arimac Lanka (Pvt Ltd.)
-                </strong>,
-                Colombo, Sri Lanka
-                (Jan. 2023 - Aug. 2023)
-            </p>
-
+        <div class="entry">
+            <h3>Senior Software Engineer | Backend &ndash; Java</h3>
+            <p><strong>Etihad Guest Mobile Application, Arimac Lanka (Pvt Ltd.)</strong>, Colombo, Sri Lanka | Jan. 2023 &ndash; Aug. 2023</p>
             <ul>
-                <li>
-                    Spearheaded backend development for the Etihad Guest
-                    Mobile Application.
-                </li>
-
-                <li>
-                    Collaborated with cross-functional teams to design,
-                    implement, and maintain scalable backend systems.
-                </li>
-
-                <li>
-                    Designed and developed high-performance backend
-                    systems supporting global users.
-                </li>
-
-                <li>
-                    Ensured scalability and reliability by integrating
-                    DevOps practices and cloud services.
-                </li>
-
-                <li>
-                    Delivered robust solutions aligned with client
-                    requirements.
-                </li>
-
-                <li>
-                    <strong>Backend:</strong>
-                    Java, Spring Boot, Hibernate
-                </li>
-
-                <li>
-                    <strong>Databases:</strong>
-                    MySQL, MongoDB
-                </li>
-
-                <li>
-                    <strong>APIs:</strong>
-                    RESTful APIs, SOAP APIs
-                </li>
-
-                <li>
-                    <strong>DevOps:</strong>
-                    Docker, Kubernetes, Jenkins
-                </li>
-
-                <li>
-                    <strong>Cloud:</strong>
-                    Azure, IBM Cloud
-                </li>
-
-                <li>
-                    <strong>Monitoring & Logging:</strong>
-                    Prometheus, Grafana, ELK Stack
-                </li>
+                <li>Led backend development for the Etihad Guest Mobile Application using Java, Spring Boot, and Hibernate.</li>
+                <li>Integrated DevOps practices and cloud services into backend development and deployment.</li>
             </ul>
+            <p><strong>Databases:</strong> MySQL, MongoDB | <strong>APIs:</strong> RESTful APIs, SOAP APIs</p>
+            <p><strong>DevOps:</strong> Docker, Kubernetes, Jenkins | <strong>Cloud:</strong> Azure, IBM Cloud</p>
+            <p><strong>Monitoring &amp; Logging:</strong> Prometheus, Grafana, ELK Stack</p>
         </div>
 
-
-        <div>
-            <h3>
-                Commissioned Officer |
-                Machine Learning Engineer – Python
-            </h3>
-
-            <p>
-                <strong>UAV R&amp;D Wing, Sri Lanka Air Force</strong>,
-                Katukurunda, Sri Lanka
-                (Jan. 2021 - June 2022)
-            </p>
-
+        <div class="entry">
+            <h3>Commissioned Officer | Machine Learning Engineer &ndash; Python</h3>
+            <p><strong>UAV R&amp;D Wing, Sri Lanka Air Force</strong>, Katukurunda, Sri Lanka | Jan. 2021 &ndash; June 2022</p>
             <ul>
-                <li>
-                    Advanced unmanned aerial system capabilities by
-                    applying machine learning algorithms to autonomous
-                    navigation and object detection.
-                </li>
-
-                <li>
-                    Collaborated with multidisciplinary teams to integrate
-                    machine learning solutions into UAV operations.
-                </li>
-
-                <li>
-                    Developed and validated machine learning models for
-                    autonomous navigation and real-time object detection.
-                </li>
-
-                <li>
-                    Played a central role in designing, implementing,
-                    and testing machine learning solutions tailored to
-                    UAV mission requirements.
-                </li>
-
-                <li>
-                    <strong>Programming &amp; ML:</strong>
-                    Python, TensorFlow, PyTorch
-                </li>
-
-                <li>
-                    <strong>Data Processing:</strong>
-                    NumPy, Pandas, Scikit-Learn
-                </li>
-
-                <li>
-                    <strong>UAV Systems:</strong>
-                    PX4 Autopilot
-                </li>
+                <li>Developed and validated machine learning models for autonomous UAV navigation and real-time object detection.</li>
+                <li>Integrated and tested machine learning solutions for UAV operational requirements.</li>
             </ul>
+            <p><strong>Programming &amp; ML:</strong> Python, TensorFlow, PyTorch</p>
+            <p><strong>Data Processing:</strong> NumPy, pandas, scikit-learn | <strong>UAV Systems:</strong> PX4 Autopilot</p>
         </div>
 
-
-        <div>
-            <h3>
-                Associate Software Engineer |
-                DevOps / Java Backend
-            </h3>
-
-            <p>
-                <strong>Virtusa (Pvt. Ltd.)</strong>,
-                Colombo, Sri Lanka
-                (Mar. 2019 - Sep. 2020)
-            </p>
-
+        <div class="entry">
+            <h3>Associate Software Engineer | DevOps / Java Backend</h3>
+            <p><strong>Virtusa (Pvt. Ltd.)</strong>, Colombo, Sri Lanka | Mar. 2019 &ndash; Sep. 2020</p>
             <ul>
-                <li>
-                    Implemented and managed DevOps processes to optimize
-                    software development and deployment workflows.
-                </li>
-
-                <li>
-                    Collaborated with development and operations teams
-                    to establish continuous integration, delivery, and
-                    deployment pipelines.
-                </li>
-
-                <li>
-                    Designed and managed CI/CD pipelines to automate
-                    deployment processes and improve efficiency.
-                </li>
-
-                <li>
-                    Improved operational reliability using Docker and
-                    Kubernetes containerization and orchestration.
-                </li>
-
-                <li>
-                    Supported enterprise adoption of DevOps practices
-                    and solutions.
-                </li>
-
-                <li>
-                    <strong>DevOps:</strong>
-                    Jenkins, Docker, Kubernetes, Git
-                </li>
-
-                <li>
-                    <strong>CI/CD:</strong>
-                    GitLab CI/CD, Jenkins Pipelines
-                </li>
-
-                <li>
-                    <strong>Configuration Management:</strong>
-                    Ansible, Terraform
-                </li>
-
-                <li>
-                    <strong>Cloud:</strong>
-                    AWS (EC2, S3), Azure DevOps
-                </li>
-
-                <li>
-                    <strong>Backend:</strong>
-                    Java, Spring Boot
-                </li>
+                <li>Designed and managed CI/CD pipelines to automate software deployment workflows.</li>
+                <li>Used Docker and Kubernetes for containerization and orchestration.</li>
             </ul>
+            <p><strong>DevOps &amp; CI/CD:</strong> Jenkins, Jenkins Pipelines, GitLab CI/CD, Docker, Kubernetes, Git</p>
+            <p><strong>Configuration Management:</strong> Ansible, Terraform</p>
+            <p><strong>Cloud:</strong> AWS (EC2, S3), Azure DevOps | <strong>Backend:</strong> Java, Spring Boot</p>
         </div>
 
-
-        <div>
-            <h3>Junior Software Engineer | Backend – Java</h3>
-
-            <p>
-                <strong>Golden Sphere, S2T Unlocking Cyberspace</strong>,
-                Colombo, Sri Lanka
-                (Oct. 2017 - Mar. 2018)
-            </p>
-
+        <div class="entry">
+            <h3>Junior Software Engineer | Backend &ndash; Java</h3>
+            <p><strong>Golden Sphere, S2T Unlocking Cyberspace</strong>, Colombo, Sri Lanka | Oct. 2017 &ndash; Mar. 2018</p>
             <ul>
-                <li>
-                    Collaborated with senior engineers and project managers
-                    on the design, implementation, and maintenance of
-                    backend systems.
-                </li>
-
-                <li>
-                    Coded and tested backend functionality to ensure
-                    optimal application performance.
-                </li>
-
-                <li>
-                    Focused on improving application scalability and
-                    reliability.
-                </li>
-
-                <li>
-                    Contributed to the development of high-quality
-                    software solutions alongside senior engineers.
-                </li>
-
-                <li>
-                    <strong>Technologies:</strong>
-                    Java, Spring Framework, MySQL, Git.
-                </li>
+                <li>Implemented, tested, and maintained backend functionality using Java, Spring Framework, and MySQL.</li>
             </ul>
+            <p><strong>Technologies:</strong> Java, Spring Framework, MySQL, Git.</p>
         </div>
     </section>
 
-
-    <!-- Technical Skills -->
-    <section>
-        <h2>Technical Skills</h2>
-
+    <section aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Technical Skills</h2>
         <div class="skills">
-            <div>
-                <strong>Programming Languages:</strong>
-                Python, Java, SQL, R
-            </div>
-
-            <div>
-                <strong>AI / Machine Learning:</strong>
-                TensorFlow, PyTorch, Scikit-Learn,
-                Offline Reinforcement Learning
-            </div>
-
-            <div>
-                <strong>Backend Frameworks:</strong>
-                Spring Boot, Spring Framework, Hibernate
-            </div>
-
-            <div>
-                <strong>Data Science:</strong>
-                NumPy, Pandas, SciPy
-            </div>
-
-            <div>
-                <strong>NLP:</strong>
-                NLTK, SpaCy, RoBERTa, Bi-directional LSTM
-            </div>
-
-            <div>
-                <strong>Computer Vision:</strong>
-                OpenCV
-            </div>
-
-            <div>
-                <strong>Databases:</strong>
-                MySQL, MongoDB
-            </div>
-
-            <div>
-                <strong>DevOps:</strong>
-                Docker, Kubernetes, Jenkins,
-                GitLab CI/CD, Ansible, Terraform
-            </div>
-
-            <div>
-                <strong>Cloud:</strong>
-                AWS (EC2, S3), Azure, Azure DevOps,
-                IBM Cloud
-            </div>
-
-            <div>
-                <strong>Monitoring &amp; Logging:</strong>
-                Prometheus, Grafana, ELK Stack
-            </div>
-
-            <div>
-                <strong>APIs:</strong>
-                RESTful APIs, SOAP APIs
-            </div>
-
-            <div>
-                <strong>UAV Systems:</strong>
-                PX4 Autopilot
-            </div>
+            <div><strong>Programming Languages:</strong> Python, Java, SQL, R</div>
+            <div><strong>AI / Machine Learning:</strong> TensorFlow, PyTorch, scikit-learn</div>
+            <div><strong>Reinforcement Learning:</strong> Offline RL, value learning, value-guided policy improvement, behavioral supervision</div>
+            <div><strong>Backend Frameworks:</strong> Spring Boot, Spring Framework, Hibernate</div>
+            <div><strong>Data Science:</strong> NumPy, pandas, SciPy</div>
+            <div><strong>NLP:</strong> NLTK, spaCy, RoBERTa, bidirectional LSTM</div>
+            <div><strong>Computer Vision:</strong> OpenCV</div>
+            <div><strong>Databases:</strong> MySQL, MongoDB</div>
+            <div><strong>DevOps:</strong> Docker, Kubernetes, Jenkins, Git, GitLab CI/CD, Ansible, Terraform</div>
+            <div><strong>Cloud:</strong> AWS (EC2, S3), Azure, Azure DevOps, IBM Cloud</div>
+            <div><strong>Monitoring &amp; Logging:</strong> Prometheus, Grafana, ELK Stack</div>
+            <div><strong>APIs:</strong> RESTful APIs, SOAP APIs</div>
+            <div><strong>UAV Systems:</strong> PX4 Autopilot</div>
         </div>
     </section>
 
+    <section aria-labelledby="service-heading">
+        <h2 id="service-heading">Academic Service &amp; Volunteering</h2>
 
-    <!-- Languages -->
-    <section>
-        <h2>Languages</h2>
-
-        <div class="languages">
-            <div>
-                <strong>Sinhala:</strong>
-                Native
-            </div>
-
-            <div>
-                <strong>English:</strong>
-                C1-CEFR (DET-120)
-            </div>
+        <!-- Conference identity: https://gmisconference.org/cahsi/.
+             Organizing role and year supplied by the CV owner. -->
+        <div class="entry">
+            <h3>Co-organizer &ndash; Data Analytics Challenge</h3>
+            <p><strong>Great Minds in STEM (GMiS) Conference</strong> | 2026</p>
         </div>
-    </section>
 
-
-    <!-- Leadership -->
-    <section>
-        <h2>Leadership</h2>
-
-        <p>
-            Developed strong leadership and team-management skills
-            during training as a Commissioned Officer in the Sri Lanka
-            Air Force, including strategic planning, discipline, and
-            team coordination under high-pressure environments.
-        </p>
-    </section>
-
-
-    <!-- Hobbies -->
-    <section>
-        <h2>Hobbies &amp; Interests</h2>
-
-        <ul>
-            <li>
-                <strong>Archaeology:</strong>
-                Interested in exploring ancient natural history,
-                civilizations, and religions.
-            </li>
-
-            <li>
-                <strong>Cooking:</strong>
-                Interested in traditional and exotic food recipes
-                and their nutritional characteristics.
-            </li>
-
-            <li>
-                <strong>Running:</strong>
-                Actively participates in local runs and fitness events,
-                including 5K races.
-            </li>
-        </ul>
-    </section>
-
-
-    <!-- Scholarships -->
-    <section>
-        <h2>Scholarships</h2>
-
-        <ul>
-            <li>
-                <strong>Scholar Dollar Scholarship:</strong>
-                Awarded by New Mexico State University for
-                Fall 2024 and Spring 2025.
-            </li>
-        </ul>
-    </section>
-
-
-    <!-- Achievements -->
-    <section>
-        <h2>Achievements</h2>
-
-        <ul>
-            <li>
-                <strong>5K Run:</strong>
-                Placed 23rd out of 316 participants in the
-                2024 NMSU Gratitude Walk/Run.
-            </li>
-
-            <li>
-                <strong>Robotics Competition:</strong>
-                Champion in the 2016 Robotics Competition organized
-                by the Electronics Students' Society,
-                University of Kelaniya.
-            </li>
-        </ul>
-    </section>
-
-
-    <!-- Volunteering -->
-    <section>
-        <h2>Volunteering Experience</h2>
-
-        <div>
-            <h3>
-                Graduate Research &amp; Arts Symposium (GRAS)
-                2024 Volunteer
-            </h3>
-
-            <p>
-                <strong>New Mexico State University</strong>
-                – Las Cruces, NM
-            </p>
-
-            <p>November 9, 2024 | 8 AM – 12 PM</p>
-
+        <div class="entry">
+            <h3>Graduate Research &amp; Arts Symposium (GRAS) Volunteer</h3>
+            <p><strong>New Mexico State University</strong>, Las Cruces, NM | November 9, 2024</p>
             <ul>
-                <li>
-                    Assisted in organizing and managing event activities,
-                    supporting graduate students in showcasing their
-                    research and creative projects.
-                </li>
-
-                <li>
-                    Facilitated registration and provided logistical
-                    support to attendees and presenters.
-                </li>
-
-                <li>
-                    Helped foster an academic environment for networking
-                    and scholarly exchange among students and faculty.
-                </li>
+                <li>Assisted with event activities, participant registration, and logistical support for presenters and attendees.</li>
             </ul>
         </div>
     </section>
 
+    <section aria-labelledby="scholarships-heading">
+        <h2 id="scholarships-heading">Scholarships</h2>
+        <p><strong>Scholar Dollar Scholarship:</strong> New Mexico State University, Fall 2024 and Spring 2025.</p>
+    </section>
 
-    <!-- References -->
-    <section>
-        <h2>References</h2>
+    <section aria-labelledby="achievements-heading">
+        <h2 id="achievements-heading">Achievements</h2>
+        <ul>
+            <li><strong>5K Run:</strong> Placed 23rd out of 316 participants in the 2024 NMSU Gratitude Walk/Run.</li>
+            <li><strong>Robotics Competition:</strong> Champion in the 2016 Robotics Competition organized by the Electronics Students' Society, University of Kelaniya.</li>
+        </ul>
+    </section>
 
-        <div class="references">
+    <section aria-labelledby="leadership-heading">
+        <h2 id="leadership-heading">Leadership Training</h2>
+        <p>Received training in strategic planning, discipline, and team coordination in high-pressure environments as a Commissioned Officer in the Sri Lanka Air Force.</p>
+    </section>
 
-            <p>
-                <strong>Dr. Christabel Wayllace</strong>
-                |
-                Assistant Professor
-                |
-                Department of Computer Science,
-                New Mexico State University, USA
-            </p>
-
-            <p>
-                Email:
-                <a href="mailto:cwayllac@nmsu.edu">
-                    cwayllac@nmsu.edu
-                </a>
-            </p>
-
-            <br>
-
-            <p>
-                <strong>Dr. Francine Mezzomo Giotto</strong>
-                |
-                Assistant Professor
-                |
-                Department of Animal and Range Sciences,
-                New Mexico State University, USA
-            </p>
-
-            <p>
-                Email:
-                <a href="mailto:fgiotto@nmsu.edu">
-                    fgiotto@nmsu.edu
-                </a>
-            </p>
-
-            <br>
-
-            <p>
-                <strong>Dr. Christof Teuscher</strong>
-                |
-                Professor
-                |
-                Department of Electrical and Computer Engineering,
-                Maseeh College of Engineering and Computer Science,
-                Portland State University, USA
-            </p>
-
-            <p>
-                Email:
-                <a href="mailto:teuscher@pdx.edu">
-                    teuscher@pdx.edu
-                </a>
-            </p>
-
+    <section aria-labelledby="languages-heading">
+        <h2 id="languages-heading">Languages</h2>
+        <div class="languages">
+            <div><strong>Sinhala:</strong> Native</div>
+            <div><strong>English:</strong> C1-CEFR (DET-120)</div>
         </div>
     </section>
 
-</div>
+    <section aria-labelledby="interests-heading">
+        <h2 id="interests-heading">Hobbies &amp; Interests</h2>
+        <ul>
+            <li><strong>Archaeology:</strong> Interested in ancient natural history, civilizations, and religions.</li>
+            <li><strong>Cooking:</strong> Interested in traditional and exotic recipes and their nutritional characteristics.</li>
+            <li><strong>Running:</strong> Participates in local runs and fitness events, including 5K races.</li>
+        </ul>
+    </section>
+
+    <section aria-labelledby="references-heading">
+        <h2 id="references-heading">References</h2>
+        <div class="references">
+            <div class="entry">
+                <p><strong>Dr. Christabel Wayllace</strong> | Assistant Professor</p>
+                <p>Department of Computer Science, New Mexico State University, USA</p>
+                <p>Email: <a href="mailto:cwayllac@nmsu.edu">cwayllac@nmsu.edu</a></p>
+            </div>
+            <div class="entry">
+                <p><strong>Dr. Francine Mezzomo Giotto</strong> | Assistant Professor</p>
+                <p>Department of Animal and Range Sciences, New Mexico State University, USA</p>
+                <p>Email: <a href="mailto:fgiotto@nmsu.edu">fgiotto@nmsu.edu</a></p>
+            </div>
+            <div class="entry">
+                <p><strong>Dr. Christof Teuscher</strong> | Professor</p>
+                <p>Department of Electrical and Computer Engineering, Maseeh College of Engineering and Computer Science, Portland State University, USA</p>
+                <p>Email: <a href="mailto:teuscher@pdx.edu">teuscher@pdx.edu</a></p>
+            </div>
+        </div>
+    </section>
+</main>
 </body>
 </html>
